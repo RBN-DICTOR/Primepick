@@ -192,14 +192,13 @@
             gap: 0.75rem;
         }
 
-        .logo span {
-            background: var(--gradient-gold);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .logo img {
+            height: 50px;
+            width: auto;
+            border-radius: 8px;
         }
 
-        .logo i {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+        .logo span {
             background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -268,8 +267,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-            opacity: 0.15;
+            background: url('https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770642688/SnapInsta.to_532139584_17842581420558339_5770431395003589212_n_go7ymj.jpg') center/cover;
+            opacity: 0.2;
         }
 
         .hero .container {
@@ -290,8 +289,9 @@
             font-size: clamp(1rem, 2vw, 1.25rem);
             max-width: 700px;
             margin: 0 auto 3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
             animation: fadeInUp 1s ease 0.6s both;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-btns {
@@ -986,7 +986,8 @@
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-crown"></i>Prime<span>Picks</span>
+                <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770642688/SnapInsta.to_532139584_17842581420558339_5770431395003589212_n_go7ymj.jpg" alt="Prime Picks Properties Logo">
+                <span>Prime Picks</span>
             </a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -1074,31 +1075,31 @@
             <h2>Property Gallery</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Galaxy One Apartments">
+                    <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657774/SmartSelect_20260209_200446_Instagram_w9ddsz.jpg" alt="Pinecrest View Apartments">
                     <div class="gallery-overlay">
-                        <h4>Galaxy One Apartments</h4>
-                        <p>Resort-style living</p>
-                        <button class="btn btn-whatsapp property-inquiry" style="margin-top: 1rem;" data-property="Galaxy One Apartments">
+                        <h4>Pinecrest View Apartments</h4>
+                        <p>Luxury living with panoramic views</p>
+                        <button class="btn btn-whatsapp property-inquiry" style="margin-top: 1rem;" data-property="Pinecrest View Apartments">
                             <i class="fab fa-whatsapp"></i> Quick Inquiry
                         </button>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Grosvenor Residences">
+                    <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657580/2024-07-11_xwcp5e.webp" alt="Grosvenor Residences">
                     <div class="gallery-overlay">
                         <h4>Grosvenor Residences</h4>
-                        <p>1 & 2 bedroom apartments</p>
+                        <p>1 & 2 bedroom luxury apartments</p>
                         <button class="btn btn-whatsapp property-inquiry" style="margin-top: 1rem;" data-property="Grosvenor Residences">
                             <i class="fab fa-whatsapp"></i> Quick Inquiry
                         </button>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Riverside Drive">
+                    <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657913/SmartSelect_20260209_200806_Instagram_s37ycq.jpg" alt="Amethyst Residences">
                     <div class="gallery-overlay">
-                        <h4>Riverside Drive</h4>
-                        <p>3BR all en suite + DSQ</p>
-                        <button class="btn btn-whatsapp property-inquiry" style="margin-top: 1rem;" data-property="Riverside Drive">
+                        <h4>Amethyst Residences</h4>
+                        <p>Modern luxury living</p>
+                        <button class="btn btn-whatsapp property-inquiry" style="margin-top: 1rem;" data-property="Amethyst Residences">
                             <i class="fab fa-whatsapp"></i> Quick Inquiry
                         </button>
                     </div>
@@ -1117,42 +1118,10 @@
         <div class="container">
             <h2>Featured Properties</h2>
             <div class="properties-grid">
-                <!-- Galaxy One Apartments -->
-                <div class="property-card">
-                    <div class="property-img">
-                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Galaxy One Apartments">
-                    </div>
-                    <div class="property-info">
-                        <h3>Galaxy One Apartments</h3>
-                        <div class="property-features">
-                            <div class="feature">
-                                <i class="fas fa-swimming-pool"></i>
-                                <span>Resort-style pool</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-dumbbell"></i>
-                                <span>Fully equipped gym</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-spa"></i>
-                                <span>Spa & sauna</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-film"></i>
-                                <span>Private theatre</span>
-                            </div>
-                        </div>
-                        <p>Experience luxury living with premium amenities including a resort-style pool, fully equipped gym, spa and sauna facilities, and a private theatre for entertainment.</p>
-                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Galaxy One Apartments">
-                            <i class="fas fa-info-circle"></i> Request Details
-                        </button>
-                    </div>
-                </div>
-                
                 <!-- Grosvenor Residences -->
                 <div class="property-card">
                     <div class="property-img">
-                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Grosvenor Residences">
+                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657580/2024-07-11_xwcp5e.webp" alt="Grosvenor Residences">
                     </div>
                     <div class="property-info">
                         <h3>Grosvenor Residences</h3>
@@ -1176,6 +1145,38 @@
                         </div>
                         <p>Contemporary living spaces designed for comfort and convenience, featuring modern finishes and premium amenities in a prime location.</p>
                         <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Grosvenor Residences">
+                            <i class="fas fa-info-circle"></i> Request Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pinecrest View Apartments -->
+                <div class="property-card">
+                    <div class="property-img">
+                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657775/SmartSelect_20260209_200502_Instagram_nz0jfd.jpg" alt="Pinecrest View Apartments">
+                    </div>
+                    <div class="property-info">
+                        <h3>Pinecrest View Apartments</h3>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2 & 3 bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span>Infinity pool</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-dumbbell"></i>
+                                <span>Fully equipped gym</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>Secure parking</span>
+                            </div>
+                        </div>
+                        <p>Experience luxury living with premium amenities including an infinity pool, fully equipped gym, and panoramic views of the city.</p>
+                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Pinecrest View Apartments">
                             <i class="fas fa-info-circle"></i> Request Details
                         </button>
                     </div>
@@ -1296,7 +1297,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1073&q=80" alt="About Prime Picks">
+                    <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770658253/SnapInsta.to_621768794_17865168474558339_531258444723155517_n_qwf8j6.jpg" alt="About Prime Picks">
                 </div>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
@@ -1547,4 +1548,4 @@
         });
     </script>
 </body>
-                  </html>
+</html>
