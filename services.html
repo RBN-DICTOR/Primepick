@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Prime Picks Properties | Luxury Real Estate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #D4AF37; /* Gold brand color */
+            --accent: #B8860B;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --text: #475569;
+            --gray: #94a3b8;
+            --card-bg: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: var(--gradient-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-gold);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+        }
+
+        section {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo i {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 2vw, 2.5rem);
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a:hover:after,
+        nav ul li a.active:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: var(--gradient-primary);
+            padding: clamp(10rem, 15vw, 14rem) 0 clamp(4rem, 8vw, 6rem);
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.15;
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            color: white;
+            -webkit-text-fill-color: white;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Services Section */
+        .services-full {
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-top: clamp(2rem, 4vw, 4rem);
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+
+        .service-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+        }
+
+        /* Service Detail Sections */
+        .service-detail {
+            margin: 5rem 0;
+        }
+
+        .service-detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 5rem);
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-detail-image {
+            height: clamp(300px, 50vw, 400px);
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-detail-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .service-detail-text h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .service-feature i {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--light);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-gold);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* CTA Section */
+        .services-cta {
+            background: var(--gradient-primary);
+            color: white;
+            text-align: center;
+        }
+
+        .services-cta h2 {
+            color: white;
+        }
+
+        .services-cta p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+            transform: translateX(50px);
+            opacity: 0;
+            animation: slideInRight 0.5s ease 1s forwards;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #1da851;
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.5rem;
+        }
+
+        .whatsapp-text {
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0f1c;
+            color: white;
+            padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(1.5rem, 3vw, 3rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .footer-col h3 {
+            color: var(--secondary);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .service-detail-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-btn {
+                padding: 12px 16px;
+            }
+            
+            .whatsapp-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-btn {
+                padding: 10px 15px;
+            }
+            
+            .whatsapp-text {
+                display: none;
+            }
+            
+            .whatsapp-btn i {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-crown"></i>Prime<span>Picks</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="properties.html">Properties</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our Premium Services</h1>
+            <p>Discover our comprehensive range of luxury real estate services designed to meet your every property need.</p>
+            <a href="contact.html" class="btn">
+                <i class="fas fa-calendar"></i> Book Consultation
+            </a>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-full">
+        <div class="container">
+            <h2>Comprehensive Real Estate Solutions</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                At Prime Picks Properties, we offer a complete suite of real estate services tailored to meet the needs of discerning clients. From pre-construction investments to executive stays, we provide end-to-end solutions for all your property requirements.
+            </p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Pre-Construction</h3>
+                    <p>Access exclusive early-phase investment opportunities in premium developments before market release.</p>
+                    <a href="#pre-construction" class="btn" style="margin-top: 1rem;">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Ready Homes</h3>
+                    <p>Curated selection of fully finished luxury properties available for immediate occupancy.</p>
+                    <a href="#ready-homes" class="btn" style="margin-top: 1rem;">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Executive Stays</h3>
+                    <p>Premium short-term accommodations designed for business professionals and discerning travelers.</p>
+                    <a href="#executive-stays" class="btn" style="margin-top: 1rem;">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Extended Stays</h3>
+                    <p>Sophisticated long-term rental solutions offering premium amenities and services.</p>
+                    <a href="#extended-stays" class="btn" style="margin-top: 1rem;">
+                        <i class="fas fa-info-circle"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail: Pre-Construction -->
+    <section class="service-detail" id="pre-construction">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <h3>Pre-Construction Investments</h3>
+                    <p>Secure your position in Kenya's most exclusive developments with our pre-construction investment service. We provide early access to premium projects at favorable pre-launch prices, ensuring maximum returns on your investment.</p>
+                    <p>Our team carefully vets each development for quality, location, and investment potential, giving you access to the most promising opportunities in the market.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Early Access</h4>
+                                <p>Secure units before public release</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Price Advantage</h4>
+                                <p>Pre-launch pricing and incentives</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Expert Vetting</h4>
+                                <p>Thorough due diligence on each project</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Investment Guidance</h4>
+                                <p>Strategic advice for maximum returns</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 2rem;">
+                        <i class="fas fa-chart-line"></i> Explore Investment Opportunities
+                    </a>
+                </div>
+                <div class="service-detail-image">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Pre-Construction Investment">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail: Ready Homes -->
+    <section class="service-detail" id="ready-homes" style="background-color: var(--light);">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-image">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Ready Homes">
+                </div>
+                <div class="service-detail-text">
+                    <h3>Move-In Ready Residences</h3>
+                    <p>Discover our curated collection of fully finished luxury properties available for immediate occupancy. Each residence in our portfolio has been carefully selected for quality, location, and design excellence.</p>
+                    <p>From modern apartments in prime locations to exclusive villas in prestigious neighborhoods, we offer properties that meet the highest standards of luxury living.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Immediate Occupancy</h4>
+                                <p>Move in as soon as you're ready</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Premium Finishes</h4>
+                                <p>High-quality materials and finishes</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Prime Locations</h4>
+                                <p>Properties in the best neighborhoods</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Full Furnishing</h4>
+                                <p>Optional designer furnishing packages</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="properties.html" class="btn" style="margin-top: 2rem;">
+                        <i class="fas fa-home"></i> View Available Properties
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail: Executive Stays -->
+    <section class="service-detail" id="executive-stays">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <h3>Executive Stays</h3>
+                    <p>Our executive stay service provides premium short-term accommodations designed specifically for business professionals, corporate travelers, and discerning visitors seeking luxury and convenience.</p>
+                    <p>Each property is equipped with high-speed internet, dedicated workspaces, and premium amenities to ensure productivity and comfort during your stay.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Flexible Terms</h4>
+                                <p>Daily, weekly, or monthly stays</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Business Amenities</h4>
+                                <p>Workspace and high-speed internet</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Prime Locations</h4>
+                                <p>Close to business districts</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Concierge Service</h4>
+                                <p>24/7 support and assistance</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 2rem;">
+                        <i class="fas fa-concierge-bell"></i> Inquire About Executive Stays
+                    </a>
+                </div>
+                <div class="service-detail-image">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Executive Stays">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Detail: Extended Stays -->
+    <section class="service-detail" id="extended-stays" style="background-color: var(--light);">
+        <div class="container">
+            <div class="service-detail-content">
+                <div class="service-detail-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1558&q=80" alt="Extended Stays">
+                </div>
+                <div class="service-detail-text">
+                    <h3>Extended Luxury Living</h3>
+                    <p>For those seeking longer-term accommodation without compromising on luxury, our extended stay service offers sophisticated residences with premium amenities and services.</p>
+                    <p>Ideal for corporate assignments, relocation periods, or extended vacations, our properties provide the comfort and convenience of home with the benefits of luxury living.</p>
+                    
+                    <div class="service-features">
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Flexible Leasing</h4>
+                                <p>Terms from 3 to 12 months</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>All-Inclusive</h4>
+                                <p>Utilities and maintenance included</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Premium Amenities</h4>
+                                <p>Gym, pool, security, and more</p>
+                            </div>
+                        </div>
+                        <div class="service-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Personalized Service</h4>
+                                <p>Tailored to your specific needs</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="contact.html" class="btn" style="margin-top: 2rem;">
+                        <i class="fas fa-calendar-alt"></i> Explore Extended Stay Options
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2>Our Service Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Consultation</h3>
+                    <p>We begin with a detailed consultation to understand your requirements, preferences, and objectives.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Property Selection</h3>
+                    <p>Our experts curate a selection of properties that match your criteria from our extensive portfolio.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Viewing & Evaluation</h3>
+                    <p>We arrange property viewings and provide expert evaluation of each option's merits.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Transaction Support</h3>
+                    <p>We guide you through the entire transaction process, ensuring a smooth and secure experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="services-cta">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Property?</h2>
+            <p>Contact our expert team today to discuss your requirements and discover how we can help you achieve your real estate goals.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn">
+                    <i class="fas fa-calendar"></i> Book Consultation
+                </a>
+                <a href="tel:+254116007900" class="btn btn-secondary">
+                    <i class="fas fa-phone-alt"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Prime Picks Properties</h3>
+                    <p>Redefining luxury real estate through exceptional service, market expertise, and curated property solutions.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="properties.html"><i class="fas fa-chevron-right"></i> Properties</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-building"></i> Pre-Construction</a></li>
+                        <li><a href="services.html"><i class="fas fa-key"></i> Ready Residences</a></li>
+                        <li><a href="services.html"><i class="fas fa-briefcase"></i> Executive Stays</a></li>
+                        <li><a href="services.html"><i class="fas fa-calendar-alt"></i> Extended Living</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chart-line"></i> Investment Advisory</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Details</h3>
+                    <ul>
+                        <li><a href="tel:+254116007900"><i class="fas fa-phone-alt"></i> +254 116 007 900</a></li>
+                        <li><a href="mailto:info@primepicks.co.ke"><i class="fas fa-envelope"></i> info@primepicks.co.ke</a></li>
+                        <li><a href="https://www.instagram.com/primepicksproperties" target="_blank"><i class="fab fa-instagram"></i> @primepicksproperties</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Prime Picks Properties. All rights reserved. | Luxury Real Estate Advisory</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/254116007900?text=Hello%20Prime%20Picks%20Properties!%20I%20saw%20your%20website%20and%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-text">Contact Us</span>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if(window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll animation
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => observer.observe(section));
+        
+        // Smooth scroll for anchor links within the page
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animate elements on load
+        window.addEventListener('load', () => {
+            document.querySelector('.page-hero').classList.add('visible');
+        });
+    </script>
+</body>
+</html>
