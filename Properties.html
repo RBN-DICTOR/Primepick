@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Properties | Prime Picks Properties | Luxury Real Estate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #D4AF37; /* Gold brand color */
+            --accent: #B8860B;
+            --light: #f8fafc;
+            --dark: #0f172a;
+            --text: #475569;
+            --gray: #94a3b8;
+            --card-bg: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #B8860B 100%);
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: var(--gradient-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--gradient-gold);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            white-space: nowrap;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover:before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #1da851;
+        }
+
+        section {
+            padding: clamp(4rem, 8vw, 6rem) 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo i {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: clamp(1rem, 2vw, 2.5rem);
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            bottom: 0;
+            left: 0;
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        nav ul li a:hover:after,
+        nav ul li a.active:after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: var(--gradient-primary);
+            padding: clamp(10rem, 15vw, 14rem) 0 clamp(4rem, 8vw, 6rem);
+            margin-top: 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            opacity: 0.15;
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 {
+            color: white;
+            -webkit-text-fill-color: white;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .page-hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Properties Filter */
+        .properties-filter {
+            background: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 80px;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-select {
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--text);
+            min-width: 180px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        /* Featured Properties */
+        .properties-full {
+            background: var(--light);
+        }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-top: clamp(2rem, 4vw, 4rem);
+        }
+
+        .property-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gradient-gold);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .property-img {
+            height: 250px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .property-card:hover .property-img img {
+            transform: scale(1.1);
+        }
+
+        .property-info {
+            padding: clamp(1.5rem, 3vw, 2rem);
+        }
+
+        .property-info h3 {
+            margin-bottom: 1rem;
+            font-size: clamp(1.25rem, 2vw, 1.5rem);
+        }
+
+        .property-price {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0;
+        }
+
+        .property-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+
+        .property-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: left;
+        }
+
+        .feature i {
+            color: var(--secondary);
+            font-size: 1.25rem;
+            min-width: 24px;
+        }
+
+        /* Investment Section */
+        .investment-opportunities {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .investment-opportunities h2 {
+            color: white;
+        }
+
+        .investment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .investment-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .investment-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .investment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+
+        /* Comparison Table */
+        .property-comparison {
+            background: white;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            box-shadow: var(--shadow-md);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--light);
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #25D366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: var(--transition);
+            transform: translateX(50px);
+            opacity: 0;
+            animation: slideInRight 0.5s ease 1s forwards;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            background: #1da851;
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.5rem;
+        }
+
+        .whatsapp-text {
+            white-space: nowrap;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0f1c;
+            color: white;
+            padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(1.5rem, 3vw, 3rem);
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .footer-col h3 {
+            color: var(--secondary);
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .comparison-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .properties-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-select {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .investment-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 6rem 2rem 2rem;
+                box-shadow: var(--shadow-lg);
+                transition: var(--transition);
+                z-index: 1000;
+            }
+            
+            nav ul.active {
+                right: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .whatsapp-btn {
+                padding: 12px 16px;
+            }
+            
+            .whatsapp-text {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .property-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-btn {
+                padding: 10px 15px;
+            }
+            
+            .whatsapp-text {
+                display: none;
+            }
+            
+            .whatsapp-btn i {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .properties-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-crown"></i>Prime<span>Picks</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="properties.html" class="active">Properties</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Featured Properties</h1>
+            <p>Discover our exclusive collection of premium properties. Each residence is carefully selected for quality, location, and luxury features.</p>
+            <a href="#properties" class="btn">
+                <i class="fas fa-home"></i> View Properties
+            </a>
+        </div>
+    </section>
+
+    <!-- Properties Filter -->
+    <section class="properties-filter" id="properties">
+        <div class="container">
+            <div class="filter-container">
+                <select class="filter-select" id="typeFilter">
+                    <option value="all">All Property Types</option>
+                    <option value="apartment">Apartments</option>
+                    <option value="villa">Villas</option>
+                    <option value="penthouse">Penthouses</option>
+                    <option value="condo">Condominiums</option>
+                </select>
+                
+                <select class="filter-select" id="locationFilter">
+                    <option value="all">All Locations</option>
+                    <option value="kilimani">Kilimani</option>
+                    <option value="westlands">Westlands</option>
+                    <option value="riverside">Riverside</option>
+                    <option value="kileleshwa">Kileleshwa</option>
+                </select>
+                
+                <select class="filter-select" id="priceFilter">
+                    <option value="all">All Price Ranges</option>
+                    <option value="low">Under $300,000</option>
+                    <option value="medium">$300,000 - $600,000</option>
+                    <option value="high">$600,000+</option>
+                </select>
+                
+                <button class="btn" id="resetFilters">
+                    <i class="fas fa-redo"></i> Reset Filters
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section class="properties-full">
+        <div class="container">
+            <h2>Our Premium Collection</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                Browse through our curated selection of luxury properties, each offering unique features and premium amenities.
+            </p>
+            
+            <div class="properties-grid">
+                <!-- Galaxy One Apartments -->
+                <div class="property-card" data-type="apartment" data-location="westlands" data-price="high">
+                    <div class="property-img">
+                        <span class="property-badge">Premium</span>
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Galaxy One Apartments">
+                    </div>
+                    <div class="property-info">
+                        <h3>Galaxy One Apartments</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Westlands, Nairobi</span>
+                        </div>
+                        <div class="property-price">$850,000</div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span>Resort-style pool</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-dumbbell"></i>
+                                <span>Fully equipped gym</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-spa"></i>
+                                <span>Spa & sauna</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-film"></i>
+                                <span>Private theatre</span>
+                            </div>
+                        </div>
+                        <p>Experience luxury living with premium amenities including a resort-style pool, fully equipped gym, spa and sauna facilities, and a private theatre for entertainment.</p>
+                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Galaxy One Apartments">
+                            <i class="fas fa-info-circle"></i> Request Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Grosvenor Residences -->
+                <div class="property-card" data-type="apartment" data-location="kilimani" data-price="medium">
+                    <div class="property-img">
+                        <span class="property-badge">Ready to Move</span>
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Grosvenor Residences">
+                    </div>
+                    <div class="property-info">
+                        <h3>Grosvenor Residences</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kilimani, Nairobi</span>
+                        </div>
+                        <div class="property-price">$450,000</div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>1 & 2 bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shower"></i>
+                                <span>Modern bathrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-utensils"></i>
+                                <span>Modern kitchen</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-wifi"></i>
+                                <span>High-speed internet</span>
+                            </div>
+                        </div>
+                        <p>Contemporary living spaces designed for comfort and convenience, featuring modern finishes and premium amenities in a prime location.</p>
+                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Grosvenor Residences">
+                            <i class="fas fa-info-circle"></i> Request Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Riverside Drive -->
+                <div class="property-card" data-type="villa" data-location="riverside" data-price="high">
+                    <div class="property-img">
+                        <span class="property-badge">Family Home</span>
+                        <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Riverside Drive">
+                    </div>
+                    <div class="property-info">
+                        <h3>Riverside Drive</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Riverside, Nairobi</span>
+                        </div>
+                        <div class="property-price">$1,200,000</div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>All en suite</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-home"></i>
+                                <span>DSQ included</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>Spacious layout</span>
+                            </div>
+                        </div>
+                        <p>Spacious family residence featuring three bedrooms all en suite, including a domestic staff quarter (DSQ) for added convenience and comfort.</p>
+                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Riverside Drive">
+                            <i class="fas fa-info-circle"></i> Request Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Kilimani Villa -->
+                <div class="property-card" data-type="villa" data-location="kilimani" data-price="high">
+                    <div class="property-img">
+                        <span class="property-badge">Luxury Villa</span>
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Kilimani Villa">
+                    </div>
+                    <div class="property-info">
+                        <h3>Kilimani Villa</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kilimani, Nairobi</span>
+                        </div>
+                        <div class="property-price">$950,000</div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>4 bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>4.5 bathrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-swimming-pool"></i>
+                                <span>Private pool</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-car"></i>
+                                <span>2 parking spaces</span>
+                            </div>
+                        </div>
+                        <p>Exclusive villa in the prestigious Kilimani area featuring a private pool, spacious living areas, and premium finishes throughout. Perfect for luxury living.</p>
+                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Kilimani Villa">
+                            <i class="fas fa-info-circle"></i> Request Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Skyline Penthouse -->
+                <div class="property-card" data-type="penthouse" data-location="westlands" data-price="high">
+                    <div class="property-img">
+                        <span class="property-badge">Penthouse</span>
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1475&q=80" alt="Skyline Penthouse">
+                    </div>
+                    <div class="property-info">
+                        <h3>Skyline Penthouse</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Westlands, Nairobi</span>
+                        </div>
+                        <div class="property-price">$1,500,000</div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>3 bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-wine-glass-alt"></i>
+                                <span>Wine cellar</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-umbrella-beach"></i>
+                                <span>Private terrace</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-concierge-bell"></i>
+                                <span>Concierge service</span>
+                            </div>
+                        </div>
+                        <p>Exclusive penthouse with panoramic city views, private terrace, wine cellar, and premium concierge services. The ultimate in luxury living.</p>
+                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Skyline Penthouse">
+                            <i class="fas fa-info-circle"></i> Request Details
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Modern Condo -->
+                <div class="property-card" data-type="condo" data-location="kileleshwa" data-price="medium">
+                    <div class="property-img">
+                        <span class="property-badge">Smart Home</span>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1453&q=80" alt="Modern Condo">
+                    </div>
+                    <div class="property-info">
+                        <h3>Modern Condo</h3>
+                        <div class="property-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kileleshwa, Nairobi</span>
+                        </div>
+                        <div class="property-price">$380,000</div>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-home"></i>
+                                <span>2 bedrooms</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-tv"></i>
+                                <span>Smart home system</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-wind"></i>
+                                <span>Central A/C</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>24/7 security</span>
+                            </div>
+                        </div>
+                        <p>Contemporary condominium featuring smart home technology, modern finishes, and comprehensive security systems in a prime location.</p>
+                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Modern Condo">
+                            <i class="fas fa-info-circle"></i> Request Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investment Opportunities -->
+    <section class="investment-opportunities">
+        <div class="container">
+            <h2>Investment Opportunities</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: rgba(255, 255, 255, 0.9);">
+                Explore various investment opportunities in Kenya's premium real estate market with attractive returns and growth potential.
+            </p>
+            
+            <div class="investment-grid">
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Capital Appreciation</h3>
+                    <p>Properties in prime locations with consistent value growth and high resale potential.</p>
+                </div>
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>Rental Income</h3>
+                    <p>Premium properties with strong rental yields and reliable tenant demand.</p>
+                </div>
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Pre-Construction</h3>
+                    <p>Early investment opportunities with favorable pricing and significant appreciation potential.</p>
+                </div>
+                <div class="investment-card">
+                    <div class="investment-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h3>International Portfolio</h3>
+                    <p>Diversify your investment portfolio with premium Kenyan real estate assets.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="contact.html" class="btn">
+                    <i class="fas fa-chart-line"></i> Discuss Investment Options
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property Comparison -->
+    <section class="property-comparison">
+        <div class="container">
+            <h2>Property Comparison</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+                Compare key features across our premium property selections to find the perfect match for your needs.
+            </p>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Galaxy One</th>
+                            <th>Kilimani Villa</th>
+                            <th>Riverside Drive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Property Type</strong></td>
+                            <td>Luxury Apartment</td>
+                            <td>Executive Villa</td>
+                            <td>Family Residence</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bedrooms</strong></td>
+                            <td>2-3</td>
+                            <td>4</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bathrooms</strong></td>
+                            <td>2-3</td>
+                            <td>4.5</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Parking</strong></td>
+                            <td>2 spaces</td>
+                            <td>2 spaces</td>
+                            <td>2 spaces</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amenities</strong></td>
+                            <td>Pool, Gym, Spa</td>
+                            <td>Private Pool</td>
+                            <td>Garden, DSQ</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Location</strong></td>
+                            <td>Westlands</td>
+                            <td>Kilimani</td>
+                            <td>Riverside</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="services-cta" style="background: var(--light); color: var(--text);">
+        <div class="container">
+            <h2>Ready to Find Your Dream Property?</h2>
+            <p style="color: var(--text);">Contact our property specialists today to schedule viewings, discuss financing options, or request detailed information about any property.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn">
+                    <i class="fas fa-calendar"></i> Schedule Viewing
+                </a>
+                <a href="gallery.html" class="btn btn-secondary">
+                    <i class="fas fa-images"></i> View Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Prime Picks Properties</h3>
+                    <p>Redefining luxury real estate through exceptional service, market expertise, and curated property solutions.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Navigation</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                        <li><a href="properties.html"><i class="fas fa-chevron-right"></i> Properties</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="services.html"><i class="fas fa-building"></i> Pre-Construction</a></li>
+                        <li><a href="services.html"><i class="fas fa-key"></i> Ready Residences</a></li>
+                        <li><a href="services.html"><i class="fas fa-briefcase"></i> Executive Stays</a></li>
+                        <li><a href="services.html"><i class="fas fa-calendar-alt"></i> Extended Living</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chart-line"></i> Investment Advisory</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Details</h3>
+                    <ul>
+                        <li><a href="tel:+254116007900"><i class="fas fa-phone-alt"></i> +254 116 007 900</a></li>
+                        <li><a href="mailto:info@primepicks.co.ke"><i class="fas fa-envelope"></i> info@primepicks.co.ke</a></li>
+                        <li><a href="https://www.instagram.com/primepicksproperties" target="_blank"><i class="fab fa-instagram"></i> @primepicksproperties</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Prime Picks Properties. All rights reserved. | Luxury Real Estate Advisory</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/254116007900?text=Hello%20Prime%20Picks%20Properties!%20I%20saw%20your%20properties%20and%20would%20like%20to%20inquire%20about%20viewing%20one." target="_blank" class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-text">Inquire About Properties</span>
+        </a>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if(window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll animation
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => observer.observe(section));
+        
+        // Property filtering
+        const typeFilter = document.getElementById('typeFilter');
+        const locationFilter = document.getElementById('locationFilter');
+        const priceFilter = document.getElementById('priceFilter');
+        const resetFiltersBtn = document.getElementById('resetFilters');
+        const propertyCards = document.querySelectorAll('.property-card');
+        
+        function filterProperties() {
+            const typeValue = typeFilter.value;
+            const locationValue = locationFilter.value;
+            const priceValue = priceFilter.value;
+            
+            propertyCards.forEach(card => {
+                const cardType = card.getAttribute('data-type');
+                const cardLocation = card.getAttribute('data-location');
+                const cardPrice = card.getAttribute('data-price');
+                
+                const typeMatch = typeValue === 'all' || cardType === typeValue;
+                const locationMatch = locationValue === 'all' || cardLocation === locationValue;
+                const priceMatch = priceValue === 'all' || cardPrice === priceValue;
+                
+                if (typeMatch && locationMatch && priceMatch) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 100);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        }
+        
+        typeFilter.addEventListener('change', filterProperties);
+        locationFilter.addEventListener('change', filterProperties);
+        priceFilter.addEventListener('change', filterProperties);
+        
+        resetFiltersBtn.addEventListener('click', () => {
+            typeFilter.value = 'all';
+            locationFilter.value = 'all';
+            priceFilter.value = 'all';
+            filterProperties();
+        });
+        
+        // Property inquiry buttons
+        document.querySelectorAll('.property-inquiry').forEach(button => {
+            button.addEventListener('click', function() {
+                const property = this.getAttribute('data-property');
+                const whatsappMessage = `Hello Prime Picks! I'm interested in the ${property} property. Could you please send me more details and schedule a viewing?`;
+                
+                window.open(`https://wa.me/254116007900?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+            });
+        });
+        
+        // Animate elements on load
+        window.addEventListener('load', () => {
+            document.querySelector('.page-hero').classList.add('visible');
+        });
+    </script>
+</body>
+</html>
