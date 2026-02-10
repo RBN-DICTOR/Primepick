@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Featured Properties | Prime Picks Properties | Luxury Real Estate</title>
-    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657774/SmartSelect_20260209_200446_Instagram_w9ddsz.jpg">
+    <title>Contact Us | Prime Picks Properties | Luxury Real Estate</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
     <style>
@@ -193,11 +192,6 @@
             gap: 0.75rem;
         }
 
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
-
         .logo span {
             background: var(--gradient-gold);
             -webkit-background-clip: text;
@@ -209,6 +203,14 @@
             background: var(--gradient-gold);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        /* Professional Logo Enhancement */
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            margin-right: 10px;
         }
 
         nav ul {
@@ -275,7 +277,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770658151/SmartSelect_20260209_195831_Instagram_t9hius.jpg') center/cover;
+            background: url('https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770658252/SmartSelect_20260209_195750_Instagram_vnw7bq.jpg') center/cover;
             opacity: 0.15;
         }
 
@@ -298,209 +300,186 @@
             color: rgba(255, 255, 255, 0.9);
         }
 
-        /* Properties Filter */
-        .properties-filter {
+        /* Contact Section */
+        .contact-full {
             background: white;
-            padding: 2rem 0;
-            position: sticky;
-            top: 80px;
-            z-index: 100;
-            box-shadow: var(--shadow-sm);
         }
 
-        .filter-container {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .filter-select {
-            padding: 0.75rem 1.5rem;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: var(--radius);
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            color: var(--text);
-            min-width: 180px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-select:focus {
-            outline: none;
-            border-color: var(--secondary);
-        }
-
-        /* Featured Properties */
-        .properties-full {
-            background: var(--light);
-        }
-
-        .properties-grid {
+        .contact-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: clamp(1.5rem, 3vw, 2.5rem);
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 5rem);
             margin-top: clamp(2rem, 4vw, 4rem);
         }
 
-        .property-card {
-            background: var(--card-bg);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .property-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .property-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--gradient-gold);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            z-index: 2;
-        }
-
-        .property-img {
-            height: 250px;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .property-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .property-card:hover .property-img img {
-            transform: scale(1.1);
-        }
-
-        .property-info {
-            padding: clamp(1.5rem, 3vw, 2rem);
-        }
-
-        .property-info h3 {
-            margin-bottom: 1rem;
-            font-size: clamp(1.25rem, 2vw, 1.5rem);
-        }
-
-        .property-price {
-            color: var(--secondary);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin: 1rem 0;
-        }
-
-        .property-location {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-
-        .property-features {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-align: left;
-        }
-
-        .feature i {
-            color: var(--secondary);
-            font-size: 1.25rem;
-            min-width: 24px;
-        }
-
-        /* Investment Section */
-        .investment-opportunities {
-            background: var(--gradient-primary);
-            color: white;
-        }
-
-        .investment-opportunities h2 {
-            color: white;
-        }
-
-        .investment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .investment-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: var(--radius);
-            padding: 2rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-
-        .investment-card:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-10px);
-        }
-
-        .investment-icon {
-            font-size: 2.5rem;
+        .contact-info h3 {
+            color: var(--primary);
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
             margin-bottom: 1.5rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--light);
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover {
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-detail i {
+            font-size: 1.5rem;
             color: var(--secondary);
         }
 
-        /* Comparison Table */
-        .property-comparison {
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 50%;
+            color: var(--text);
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius);
+            font-family: 'Inter', sans-serif;
+            background: white;
+            color: var(--text);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus,
+        .contact-form select:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Office Location */
+        .office-location {
+            background: var(--light);
+        }
+
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 4vw, 5rem);
+            align-items: center;
+        }
+
+        .location-info h3 {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.5rem, 3vw, 1.8rem);
+        }
+
+        .location-map {
+            height: 400px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-md);
+        }
+
+        .map-placeholder {
+            height: 100%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* FAQ Section */
+        .faq {
             background: white;
         }
 
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 2rem;
-            box-shadow: var(--shadow-md);
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 2px solid #e2e8f0;
             border-radius: var(--radius);
             overflow: hidden;
+            transition: var(--transition);
         }
 
-        .comparison-table th {
-            background: var(--gradient-primary);
-            color: white;
+        .faq-item.active {
+            border-color: var(--secondary);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
             padding: 1.5rem;
-            text-align: left;
-        }
-
-        .comparison-table td {
-            padding: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comparison-table tr:hover {
             background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.5rem;
+            max-height: 500px;
+        }
+
+        .faq-toggle {
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
         }
 
         /* WhatsApp Floating Button */
@@ -621,35 +600,18 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
+            .contact-container,
+            .location-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
-            .comparison-table {
-                display: block;
-                overflow-x: auto;
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .properties-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .filter-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .filter-select {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .investment-grid {
-                grid-template-columns: 1fr;
-            }
-            
             nav ul {
                 position: fixed;
                 top: 0;
@@ -672,6 +634,10 @@
                 display: block;
             }
             
+            .location-map {
+                height: 300px;
+            }
+            
             .whatsapp-btn {
                 padding: 12px 16px;
             }
@@ -690,10 +656,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .property-features {
-                grid-template-columns: 1fr;
-            }
-            
             .whatsapp-btn {
                 padding: 10px 15px;
             }
@@ -706,12 +668,6 @@
                 font-size: 1.8rem;
             }
         }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .properties-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
     </style>
 </head>
 <body>
@@ -719,8 +675,8 @@
     <header id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657580/2025-03-25_ymm1ms.webp" alt="Prime Picks Properties Logo">
-                <span>Prime Picks</span>
+                <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770642688/SnapInsta.to_532139584_17842581420558339_5770431395003589212_n_go7ymj.jpg" alt="Prime Picks Logo" class="logo-img">
+                <span>PrimePicks</span>
             </a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -732,9 +688,9 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="properties.html" class="active">Properties</a></li>
+                    <li><a href="properties.html">Properties</a></li>
                     <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -743,405 +699,227 @@
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container">
-            <h1>Featured Properties</h1>
-            <p>Discover our exclusive collection of premium properties. Each residence is carefully selected for quality, location, and luxury features.</p>
-            <a href="#properties" class="btn">
-                <i class="fas fa-home"></i> View Properties
+            <h1>Contact Us</h1>
+            <p>Get in touch with our expert team to discuss your property needs, schedule viewings, or explore investment opportunities.</p>
+            <a href="#contact" class="btn">
+                <i class="fas fa-envelope"></i> Send Message
             </a>
         </div>
     </section>
 
-    <!-- Properties Filter -->
-    <section class="properties-filter" id="properties">
+    <!-- Contact Section -->
+    <section class="contact-full" id="contact">
         <div class="container">
-            <div class="filter-container">
-                <select class="filter-select" id="typeFilter">
-                    <option value="all">All Property Types</option>
-                    <option value="apartment">Apartments</option>
-                    <option value="residence">Residences</option>
-                    <option value="luxury">Luxury</option>
-                </select>
+            <h2>Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Connect With Our Team</h3>
+                    <p>Contact our advisory team for personalized consultation and exclusive property access. We're here to help you find your perfect property.</p>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <h4>Phone/WhatsApp</h4>
+                            <p>+254 116 007 900</p>
+                            <small>Available 24/7 for urgent inquiries</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@primepicks.co.ke</p>
+                            <small>Response within 24 hours</small>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Office Hours</h4>
+                            <p>Mon-Fri: 8:00 AM - 6:00 PM</p>
+                            <p>Sat: 9:00 AM - 4:00 PM</p>
+                            <p>Sun: By appointment only</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Office Location</h4>
+                            <p>Prime Picks House, Westlands</p>
+                            <p>Nairobi, Kenya</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/primepicksproperties?igsh=MW5vODUxNDY1NWFobg==" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
                 
-                <select class="filter-select" id="locationFilter">
-                    <option value="all">All Locations</option>
-                    <option value="westlands">Westlands</option>
-                    <option value="kilimani">Kilimani</option>
-                    <option value="kileleshwa">Kileleshwa</option>
-                </select>
-                
-                <select class="filter-select" id="priceFilter">
-                    <option value="all">All Price Ranges</option>
-                    <option value="low">Under $300,000</option>
-                    <option value="medium">$300,000 - $600,000</option>
-                    <option value="high">$600,000+</option>
-                </select>
-                
-                <button class="btn" id="resetFilters">
-                    <i class="fas fa-redo"></i> Reset Filters
-                </button>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form id="contactForm" action="javascript:void(0);">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                        <input type="email" id="email" placeholder="Email Address" required>
+                        <input type="tel" id="phone" placeholder="Phone Number" required>
+                        <select id="interest" required>
+                            <option value="" disabled selected>What are you interested in?</option>
+                            <option value="pre-construction">Pre-Construction Investments</option>
+                            <option value="ready-homes">Move-In Ready Residences</option>
+                            <option value="executive-stays">Executive Stays</option>
+                            <option value="extended-living">Extended Luxury Living</option>
+                            <option value="investment">Portfolio Investment</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="viewing">Schedule Property Viewing</option>
+                        </select>
+                        <select id="budget" required>
+                            <option value="" disabled selected>Approximate Budget</option>
+                            <option value="under-300k">Under $300,000</option>
+                            <option value="300k-600k">$300,000 - $600,000</option>
+                            <option value="600k-1m">$600,000 - $1,000,000</option>
+                            <option value="over-1m">Over $1,000,000</option>
+                            <option value="undecided">Not sure yet</option>
+                        </select>
+                        <textarea id="message" placeholder="Your Message" required rows="5"></textarea>
+                        <button type="button" class="btn" id="sendMessageBtn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> Send Message via WhatsApp
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Properties -->
-    <section class="properties-full">
+    <!-- Office Location -->
+    <section class="office-location">
         <div class="container">
-            <h2>Our Premium Collection</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                Browse through our curated selection of luxury properties, each offering unique features and premium amenities.
-            </p>
-            
-            <div class="properties-grid">
-                <!-- Grosvenor Residences -->
-                <div class="property-card" data-type="apartment" data-location="westlands" data-price="medium">
-                    <div class="property-img">
-                        <span class="property-badge">Ready to Move</span>
-                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657580/2024-07-11_xwcp5e.webp" alt="Grosvenor Residences">
-                    </div>
-                    <div class="property-info">
-                        <h3>Grosvenor Residences</h3>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Westlands, Nairobi</span>
+            <div class="location-container">
+                <div class="location-info">
+                    <h3>Visit Our Office</h3>
+                    <p>Our Westlands office is conveniently located in Nairobi's premier business district, offering easy access and ample parking.</p>
+                    
+                    <div style="margin-top: 2rem;">
+                        <h4>Address Details:</h4>
+                        <p><strong>Prime Picks House</strong><br>
+                        3rd Floor, Westlands Office Park<br>
+                        Waiyaki Way, Westlands<br>
+                        Nairobi, Kenya</p>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <h4>Parking Information:</h4>
+                            <p>Secure underground parking available with 24/7 security. Visitor parking slots are clearly marked.</p>
                         </div>
-                        <div class="property-price">$450,000</div>
-                        <div class="property-features">
-                            <div class="feature">
-                                <i class="fas fa-bed"></i>
-                                <span>1 & 2 bedrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-shower"></i>
-                                <span>Modern bathrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-utensils"></i>
-                                <span>Modern kitchen</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-wifi"></i>
-                                <span>High-speed internet</span>
-                            </div>
+                        
+                        <div style="margin-top: 1.5rem;">
+                            <h4>Public Transport:</h4>
+                            <p>Easily accessible via major bus routes and taxi services. Nearest matatu stage is 200m away.</p>
                         </div>
-                        <p>Contemporary living spaces designed for comfort and convenience, featuring modern finishes and premium amenities in a prime location.</p>
-                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Grosvenor Residences">
-                            <i class="fas fa-info-circle"></i> Request Details
-                        </button>
                     </div>
                 </div>
                 
-                <!-- Pinecrest View Apartments -->
-                <div class="property-card" data-type="apartment" data-location="kilimani" data-price="high">
-                    <div class="property-img">
-                        <span class="property-badge">Premium</span>
-                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657775/SmartSelect_20260209_200502_Instagram_nz0jfd.jpg" alt="Pinecrest View Apartments">
-                    </div>
-                    <div class="property-info">
-                        <h3>Pinecrest View Apartments</h3>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kilimani, Nairobi</span>
+                <div class="location-map">
+                    <div class="map-placeholder">
+                        <div style="text-align: center; padding: 2rem;">
+                            <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                            <h4 style="color: white; margin-bottom: 0.5rem;">Prime Picks Office</h4>
+                            <p>Westlands, Nairobi</p>
+                            <a href="https://maps.google.com/?q=Westlands+Nairobi+Kenya" target="_blank" class="btn" style="margin-top: 1rem;">
+                                <i class="fas fa-directions"></i> Get Directions
+                            </a>
                         </div>
-                        <div class="property-price">$850,000</div>
-                        <div class="property-features">
-                            <div class="feature">
-                                <i class="fas fa-bed"></i>
-                                <span>2 & 3 bedrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-swimming-pool"></i>
-                                <span>Infinity pool</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-dumbbell"></i>
-                                <span>Fully equipped gym</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-car"></i>
-                                <span>Secure parking</span>
-                            </div>
-                        </div>
-                        <p>Experience luxury living with premium amenities including an infinity pool, fully equipped gym, and panoramic views of the city.</p>
-                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Pinecrest View Apartments">
-                            <i class="fas fa-info-circle"></i> Request Details
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Amethyst Residences -->
-                <div class="property-card" data-type="residence" data-location="kileleshwa" data-price="medium">
-                    <div class="property-img">
-                        <span class="property-badge">Modern Design</span>
-                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770657913/SmartSelect_20260209_200806_Instagram_s37ycq.jpg" alt="Amethyst Residences">
-                    </div>
-                    <div class="property-info">
-                        <h3>Amethyst Residences</h3>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kileleshwa, Nairobi</span>
-                        </div>
-                        <div class="property-price">$550,000</div>
-                        <div class="property-features">
-                            <div class="feature">
-                                <i class="fas fa-bed"></i>
-                                <span>2 & 3 bedrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-bath"></i>
-                                <span>En-suite bathrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tv"></i>
-                                <span>Smart home system</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>24/7 security</span>
-                            </div>
-                        </div>
-                        <p>Contemporary residences featuring smart home technology, modern finishes, and comprehensive security systems in a prime location.</p>
-                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Amethyst Residences">
-                            <i class="fas fa-info-circle"></i> Request Details
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Luxury Modern Apartments -->
-                <div class="property-card" data-type="luxury" data-location="westlands" data-price="high">
-                    <div class="property-img">
-                        <span class="property-badge">Luxury</span>
-                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770626145/SnapInsta.to_621826284_17865168546558339_3243858161528302227_n_dfcwll.jpg" alt="Luxury Modern Apartments">
-                    </div>
-                    <div class="property-info">
-                        <h3>Luxury Modern Apartments</h3>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Westlands, Nairobi</span>
-                        </div>
-                        <div class="property-price">$950,000</div>
-                        <div class="property-features">
-                            <div class="feature">
-                                <i class="fas fa-bed"></i>
-                                <span>3 bedrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-wine-glass-alt"></i>
-                                <span>Wine cellar</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-umbrella-beach"></i>
-                                <span>Private terrace</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-concierge-bell"></i>
-                                <span>Concierge service</span>
-                            </div>
-                        </div>
-                        <p>Exclusive apartments with panoramic city views, private terrace, wine cellar, and premium concierge services. The ultimate in luxury living.</p>
-                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Luxury Modern Apartments">
-                            <i class="fas fa-info-circle"></i> Request Details
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Premium Living Spaces -->
-                <div class="property-card" data-type="luxury" data-location="kilimani" data-price="medium">
-                    <div class="property-img">
-                        <span class="property-badge">Smart Home</span>
-                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770626144/SnapInsta.to_621814526_17865168501558339_3119490058343564220_n_uwz9dq.jpg" alt="Premium Living Spaces">
-                    </div>
-                    <div class="property-info">
-                        <h3>Premium Living Spaces</h3>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kilimani, Nairobi</span>
-                        </div>
-                        <div class="property-price">$380,000</div>
-                        <div class="property-features">
-                            <div class="feature">
-                                <i class="fas fa-home"></i>
-                                <span>2 bedrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-tv"></i>
-                                <span>Smart home system</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-wind"></i>
-                                <span>Central A/C</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>24/7 security</span>
-                            </div>
-                        </div>
-                        <p>Contemporary condominium featuring smart home technology, modern finishes, and comprehensive security systems in a prime location.</p>
-                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Premium Living Spaces">
-                            <i class="fas fa-info-circle"></i> Request Details
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Executive Residences -->
-                <div class="property-card" data-type="residence" data-location="westlands" data-price="high">
-                    <div class="property-img">
-                        <span class="property-badge">Executive</span>
-                        <img src="https://res.cloudinary.com/ddfkwvcn3/image/upload/v1770626145/SnapInsta.to_621737098_17865168519558339_3583592228152624445_n_p9dvvt.jpg" alt="Executive Residences">
-                    </div>
-                    <div class="property-info">
-                        <h3>Executive Residences</h3>
-                        <div class="property-location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Westlands, Nairobi</span>
-                        </div>
-                        <div class="property-price">$1,200,000</div>
-                        <div class="property-features">
-                            <div class="feature">
-                                <i class="fas fa-bed"></i>
-                                <span>4 bedrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-bath"></i>
-                                <span>4.5 bathrooms</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-swimming-pool"></i>
-                                <span>Private pool</span>
-                            </div>
-                            <div class="feature">
-                                <i class="fas fa-car"></i>
-                                <span>2 parking spaces</span>
-                            </div>
-                        </div>
-                        <p>Exclusive executive residences featuring private pools, spacious living areas, and premium finishes throughout. Perfect for luxury living.</p>
-                        <button class="btn property-inquiry" style="width: 100%; margin-top: 1.5rem;" data-property="Executive Residences">
-                            <i class="fas fa-info-circle"></i> Request Details
-                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Investment Opportunities -->
-    <section class="investment-opportunities">
+    <!-- FAQ Section -->
+    <section class="faq">
         <div class="container">
-            <h2>Investment Opportunities</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; color: rgba(255, 255, 255, 0.9);">
-                Explore various investment opportunities in Kenya's premium real estate market with attractive returns and growth potential.
-            </p>
-            
-            <div class="investment-grid">
-                <div class="investment-card">
-                    <div class="investment-icon">
-                        <i class="fas fa-chart-line"></i>
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What areas do you serve?</span>
+                        <span class="faq-toggle">+</span>
                     </div>
-                    <h3>Capital Appreciation</h3>
-                    <p>Properties in prime locations with consistent value growth and high resale potential.</p>
-                </div>
-                <div class="investment-card">
-                    <div class="investment-icon">
-                        <i class="fas fa-money-bill-wave"></i>
+                    <div class="faq-answer">
+                        <p>We specialize in premium properties across Nairobi's most sought-after neighborhoods including Westlands, Kilimani, Kileleshwa, Riverside, Karen, and Lavington. We also handle select properties in Mombasa's coastal region and upcoming developments in major Kenyan cities.</p>
                     </div>
-                    <h3>Rental Income</h3>
-                    <p>Premium properties with strong rental yields and reliable tenant demand.</p>
                 </div>
-                <div class="investment-card">
-                    <div class="investment-icon">
-                        <i class="fas fa-hard-hat"></i>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can I view a property?</span>
+                        <span class="faq-toggle">+</span>
                     </div>
-                    <h3>Pre-Construction</h3>
-                    <p>Early investment opportunities with favorable pricing and significant appreciation potential.</p>
-                </div>
-                <div class="investment-card">
-                    <div class="investment-icon">
-                        <i class="fas fa-globe-africa"></i>
+                    <div class="faq-answer">
+                        <p>We can typically arrange viewings within 24-48 hours of your inquiry. For urgent viewings, we offer same-day appointments subject to property availability and occupant consent. Virtual tours are available immediately for most properties.</p>
                     </div>
-                    <h3>International Portfolio</h3>
-                    <p>Diversify your investment portfolio with premium Kenyan real estate assets.</p>
                 </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="contact.html" class="btn">
-                    <i class="fas fa-chart-line"></i> Discuss Investment Options
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Property Comparison -->
-    <section class="property-comparison">
-        <div class="container">
-            <h2>Property Comparison</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                Compare key features across our premium property selections to find the perfect match for your needs.
-            </p>
-            
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Grosvenor</th>
-                            <th>Pinecrest View</th>
-                            <th>Amethyst</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Property Type</strong></td>
-                            <td>Luxury Apartment</td>
-                            <td>Premium Apartments</td>
-                            <td>Modern Residence</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bedrooms</strong></td>
-                            <td>1-2</td>
-                            <td>2-3</td>
-                            <td>2-3</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Bathrooms</strong></td>
-                            <td>1-2</td>
-                            <td>2-3</td>
-                            <td>2-3</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Parking</strong></td>
-                            <td>1 space</td>
-                            <td>2 spaces</td>
-                            <td>2 spaces</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Amenities</strong></td>
-                            <td>Modern finishes</td>
-                            <td>Pool, Gym, Views</td>
-                            <td>Smart home, Security</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Location</strong></td>
-                            <td>Westlands</td>
-                            <td>Kilimani</td>
-                            <td>Kileleshwa</td>
-                        </tr>
-                    </tbody>
-                </table>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you assist with financing?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we partner with leading financial institutions and mortgage providers to help secure favorable financing options for our clients. Our financial advisory team can guide you through the mortgage application process and connect you with suitable lenders based on your profile.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What fees do you charge?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our fees vary based on the service provided. For property purchases, we typically charge a commission percentage based on the sale price. For rentals and executive stays, our fees are usually included in the quoted price. We provide transparent fee breakdowns before any commitments are made.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can you help with property management?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We offer comprehensive property management services including tenant screening, rent collection, maintenance coordination, and regular property inspections. Our management services ensure your investment is well-maintained and generates optimal returns.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="services-cta" style="background: var(--light); color: var(--text);">
+    <section class="services-cta" style="background: var(--gradient-primary); color: white;">
         <div class="container">
-            <h2>Ready to Find Your Dream Property?</h2>
-            <p style="color: var(--text);">Contact our property specialists today to schedule viewings, discuss financing options, or request detailed information about any property.</p>
+            <h2 style="color: white;">Ready to Begin Your Property Journey?</h2>
+            <p style="color: rgba(255, 255, 255, 0.9);">Contact us today to schedule a consultation, view properties, or discuss your real estate goals with our expert team.</p>
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                <a href="contact.html" class="btn">
-                    <i class="fas fa-calendar"></i> Schedule Viewing
+                <a href="tel:+254116007900" class="btn">
+                    <i class="fas fa-phone-alt"></i> Call Now
                 </a>
-                <a href="gallery.html" class="btn btn-secondary">
-                    <i class="fas fa-images"></i> View Gallery
+                <a href="https://wa.me/254116007900" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+                <a href="properties.html" class="btn btn-secondary">
+                    <i class="fas fa-home"></i> View Properties
                 </a>
             </div>
         </div>
@@ -1196,9 +974,9 @@
 
     <!-- WhatsApp Floating Button -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/254116007900?text=Hello%20Prime%20Picks%20Properties!%20I%20saw%20your%20properties%20and%20would%20like%20to%20inquire%20about%20viewing%20one." target="_blank" class="whatsapp-btn">
+        <a href="https://wa.me/254116007900?text=Hello%20Prime%20Picks%20Properties!%20I%20saw%20your%20website%20and%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="whatsapp-btn">
             <i class="fab fa-whatsapp"></i>
-            <span class="whatsapp-text">Inquire About Properties</span>
+            <span class="whatsapp-text">Chat With Us</span>
         </a>
     </div>
 
@@ -1244,62 +1022,72 @@
         
         sections.forEach(section => observer.observe(section));
         
-        // Property filtering
-        const typeFilter = document.getElementById('typeFilter');
-        const locationFilter = document.getElementById('locationFilter');
-        const priceFilter = document.getElementById('priceFilter');
-        const resetFiltersBtn = document.getElementById('resetFilters');
-        const propertyCards = document.querySelectorAll('.property-card');
+        // FAQ toggle functionality
+        const faqItems = document.querySelectorAll('.faq-item');
         
-        function filterProperties() {
-            const typeValue = typeFilter.value;
-            const locationValue = locationFilter.value;
-            const priceValue = priceFilter.value;
-            
-            propertyCards.forEach(card => {
-                const cardType = card.getAttribute('data-type');
-                const cardLocation = card.getAttribute('data-location');
-                const cardPrice = card.getAttribute('data-price');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close all other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
                 
-                const typeMatch = typeValue === 'all' || cardType === typeValue;
-                const locationMatch = locationValue === 'all' || cardLocation === locationValue;
-                const priceMatch = priceValue === 'all' || cardPrice === priceValue;
-                
-                if (typeMatch && locationMatch && priceMatch) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 100);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
+                // Toggle current item
+                item.classList.toggle('active');
             });
-        }
-        
-        typeFilter.addEventListener('change', filterProperties);
-        locationFilter.addEventListener('change', filterProperties);
-        priceFilter.addEventListener('change', filterProperties);
-        
-        resetFiltersBtn.addEventListener('click', () => {
-            typeFilter.value = 'all';
-            locationFilter.value = 'all';
-            priceFilter.value = 'all';
-            filterProperties();
         });
         
-        // Property inquiry buttons
-        document.querySelectorAll('.property-inquiry').forEach(button => {
-            button.addEventListener('click', function() {
-                const property = this.getAttribute('data-property');
-                const whatsappMessage = `Hello Prime Picks! I'm interested in the ${property} property. Could you please send me more details and schedule a viewing?`;
-                
-                window.open(`https://wa.me/254116007900?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
-            });
+        // Simple WhatsApp form submission without overlapping issues
+        document.getElementById('sendMessageBtn').addEventListener('click', function() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const interest = document.getElementById('interest').value;
+            const budget = document.getElementById('budget').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !phone || interest === "" || budget === "" || !message) {
+                alert('Please fill in all fields before sending.');
+                return;
+            }
+            
+            // Format the WhatsApp message
+            const interestLabels = {
+                'pre-construction': 'Pre-Construction Investments',
+                'ready-homes': 'Move-In Ready Residences',
+                'executive-stays': 'Executive Stays',
+                'extended-living': 'Extended Luxury Living',
+                'investment': 'Portfolio Investment',
+                'general': 'General Inquiry',
+                'viewing': 'Schedule Property Viewing'
+            };
+            
+            const budgetLabels = {
+                'under-300k': 'Under $300,000',
+                '300k-600k': '$300,000 - $600,000',
+                '600k-1m': '$600,000 - $1,000,000',
+                'over-1m': 'Over $1,000,000',
+                'undecided': 'Not sure yet'
+            };
+            
+            const whatsappMessage = `New Inquiry from ${name}:
+            
+Email: ${email}
+Phone: ${phone}
+Interest: ${interestLabels[interest]}
+Budget: ${budgetLabels[budget]}
+
+Message:
+${message}`;
+            
+            // Open WhatsApp with pre-filled message
+            window.open(`https://wa.me/254116007900?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+            
+            // Clear form after sending
+            document.getElementById('contactForm').reset();
         });
         
         // Animate elements on load
